@@ -6,38 +6,11 @@ import App from './App';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from '@reduxjs/toolkit';
+import allReducers from './reducers';
 
-const initialState = {
-  count: 0
-};
-
-function reducer(state = initialState, action:any) {
-  console.log(state);
-  console.log(action);
-  switch(action.type) {
-    case 'INCREMENT':
-      return {
-        count: state.count + 1
-      };
-    case 'DECREMENT':
-      return {
-        count: state.count - 1
-      };
-    case 'RESET':
-      return {
-        count: 0
-      };
-    default:
-      return state;
-  }
-}
-
-const store = createStore(reducer);
-store.dispatch({ type: "INCREMENT" });
-store.dispatch({ type: "INCREMENT" });
-store.dispatch({ type: "DECREMENT" });
-store.dispatch({ type: "RESET" });
-store.subscribe(() => { console.log(store.getState())});
+const store = createStore(
+  allReducers
+)
 ReactDOM.render(
   <Provider store={store}>
     <App></App>

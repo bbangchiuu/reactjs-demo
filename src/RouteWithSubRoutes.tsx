@@ -9,7 +9,7 @@ export default routes;
 
 export const RouteWithSubRoutes = function (route: any) {
 
-    console.log("route");
+    console.log(route);
 
     if (route === undefined)
         return (
